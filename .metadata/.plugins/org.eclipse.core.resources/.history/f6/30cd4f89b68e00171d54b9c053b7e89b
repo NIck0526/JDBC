@@ -1,0 +1,30 @@
+package jdbc.step1.test;
+/*
+ * 1. 드라이버 로딩
+ * 		: DB서버 정보를 가지고 있는 드라이버 클래스를
+ * 		  해당 클라이언트측 메모리에 로딩시킨다
+ * 		이 과정없이는 다음 단계의 DB연결이 이루어지지 않는다.
+ * 
+ * 2. DB연결
+ * 		: jdbc4 단계중 가장 중요한 과정
+ * 		 DB에 연결이 성공되면, Connection 객체가 생성되어 리턴.
+ */
+public class DBConnectionTest1 {
+	DBConnectionTest1(){
+		//1
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("드라이버 로딩 성공....");
+		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 실패...");
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		new DBConnectionTest1();
+		
+
+	}
+
+}
